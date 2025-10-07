@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ThermoV2</title>
+    <link rel="stylesheet" href="./src/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+  
+      <!-- Log in -->
+
+      <div class="login" data-login-section>
+        <div class="baloon"><h1 class="title">Hi</h1></div>
+        <p class="greet-text">Let's roll</p>
+        <form name="login" class="login-form" method="post" data-login-form>
+          
+          <label class="name-label" for="username">Username </label>
+          <input
+            name="name"
+            id="username"
+            class="username"
+            type="text"
+            placeholder="Username"
+            minlength="3"
+            maxlength="22"
+            autocomplete="off"
+            required
+          />
+<label class="password-label" for="password">Password </label>
+          <input
+            name="password"
+            id="password"
+            class="password"
+            type="password"
+            placeholder="Password"
+            minlength="3"
+            maxlength="10"
+            autocomplete="off"
+            required
+          />
+           <label class="topic-label" for="topic">Topic </label>
+          <input
+            name="topic"
+            id="topic"
+            class="topic"
+            type="text"
+            placeholder="Topic"
+            minlength="3"
+            maxlength="22"
+            autocomplete="off"
+    
+          />
+          <!-- mf -->
+<label class="port-label" for="port">Port </label>
+          <input
+            name="port"
+            id="port"
+            class="port"
+            type="text"
+            placeholder="Port"
+            minlength="2"
+            maxlength="10"
+            autocomplete="off"
+            required
+            pattern="[0-9]+"
+          />
+          <button class="login-btn" type="submit" data-login-btn>Log in</button>
+        </form>
+      </div>
+      
+ <!-- Greetings -->
+
+      <div class="greetings hidden" data-greetings-section>
+        <div class="greetings-first-part" data-first-part>
+        <h2 class="greetings-title">You're almost there</h2>
+        <p class="greetings-text">
+          Here is some useful information that will help you to get astonishing
+          experience of using this app. Let's get start it!
+        </p>
+        <div class="greetings-info-container">
+          
+            <p class="greetings-text">This is a sensor</p>
+                       <div class="sensor example">
+              <p class="parameter">85.3</p>
+              <p class="sensor-name">Kitchen</p>
+<div class="signal">
+             <div class="signal-dot"></div>
+              <div class="signal-dot"></div>
+              <div class="signal-dot"></div>
+            </div>
+              <div class="battery">
+                <div class="low-level is-full"></div>
+                <div class="medium-level is-full"></div>
+                <div class="full-level is-full"></div>
+              </div>
+            </div>
+            </div>
+             <button class="next-btn" type="button" data-next-button>Next</button>
+            </div>
+
+            <!-- Second part -->
+
+            <div class="greetings-second-part hidden" data-second-part>
+              <ul class="greetings-examples-list">
+                <li class="greetings-examples-list-item">
+                  <div class="sensor over-heated-alarm over-heated-alarm-blink">
+              <p class="parameter">85.3</p>
+              <p class="sensor-name">Sauna</p>
+<div class="signal">
+             <div class="signal-dot"></div>
+              <div class="signal-dot"></div>
+              <div class="signal-dot"></div>
+            </div>
+              <div class="battery">
+                <div class="low-level is-full"></div>
+                <div class="medium-level is-full"></div>
+                <div class="full-level is-full"></div>
+              </div>
+                          </div>
+                          <p>Temperature is higher <br> than a limit</p>
+                          <div class="sensor sensor over-heated-alarm">
+              <p class="parameter">85.3</p>
+              <p class="sensor-name">Sauna</p>
+<div class="signal">
+             <div class="signal-dot"></div>
+              <div class="signal-dot"></div>
+              <div class="signal-dot"></div>
+            </div>
+              <div class="battery">
+                <div class="low-level is-full"></div>
+                <div class="medium-level is-full"></div>
+                <div class="full-level is-full"></div>
+              </div>
+            </div></li>
+                <li class="greetings-examples-list-item">
+                  <div class="sensor freezing-cold-alarm freezing-cold-alarm-blink">
+              <p class="parameter">5.3</p>
+              <p class="sensor-name">Garage</p>
+<div class="signal average-signal">
+             <div class="signal-dot "></div>
+              <div class="signal-dot"></div>
+              <div class="signal-dot"></div>
+            </div>
+              <div class="battery">
+                <div class="low-level medium-level"></div>
+                <div class="medium-level "></div>
+                <div class="full-level drained "></div>
+              </div>
+            </div>
+             <p>Temperature is lower <br>than the limit.  <br>Battery level<br> and strength of a <br>signal are average</p>
+            <div class="sensor freezing-cold-alarm">
+              <p class="parameter">5.3</p>
+              <p class="sensor-name">Garage</p>
+<div class="signal average-signal">
+             <div class="signal-dot"></div>
+              <div class="signal-dot"></div>
+              <div class="signal-dot"></div>
+            </div>
+              <div class="battery">
+                <div class="low-level medium-level"></div>
+                <div class="medium-level "></div>
+                <div class="full-level drained"></div>
+              </div>
+            </div></li>
+                <li class="greetings-examples-list-item">
+                  
+                  <div class="sensor  sensor-time-alarm">
+              <p class="parameter">35.7</p>
+              <p class="sensor-name">Kitchen</p>
+<div class="signal poor-signal">
+             <div class="signal-dot"></div>
+              <div class="signal-dot"></div>
+              <div class="signal-dot"></div>
+            </div>
+              <div class="battery">
+                <div class="low-level"></div>
+                <div class="medium-level drained"></div>
+                <div class="full-level drained"></div>
+              </div>
+              <button class="tau" >
+               1
+            </button>
+            </div>
+            <p>Data wasn't received <br> over a time limit.<br>The temperature<br> sensor is damaged.<br> The battery has almost<br> died and the signal<br> is too weak </p>
+            <div class="sensor damaged">
+              <p class="parameter">!</p>
+              <p class="sensor-name">Kitchen</p>
+<div class="signal poor-signal">
+             <div class="signal-dot"></div>
+              <div class="signal-dot"></div>
+              <div class="signal-dot"></div>
+            </div>
+              <div class="battery">
+                <div class="low-level"></div>
+                <div class="medium-level drained"></div>
+                <div class="full-level drained"></div>
+              </div>
+            </div></li>
+              </ul>
+               <button class="next-btn" type="button" data-roll-button>Let's roll</button>
+            </div>
+           
+            
+</div>
+          <!-- Temperature monitor -->
+
+          <section class="monitor hidden" data-monitor-section data-is-alarm-active="false" data-is-sound-playing="false">
+            <div class="menu">
+              <button class="stop-alarm-btn" data-stop-alarm="stopAlarm">
+                &#9728;
+              </button>
+              
+            </div>
+          </section>
+        </div>
+             </div>
+
+      <!-- ==== Modal -->
+      <dialog class="modal" data-modal>
+        <div class="settings-container">
+          <div class="baloon"><b class="title">Hi</b></div>
+          <form class="settings-form" method="post" data-settings-form>
+            <label for="current-sensorsname">Sensor's name</label>
+            <input
+              id="current-sensorsname"
+              type="text"
+              class="sensorsname"
+              data-current-name
+              autocomplete="off"
+            />
+            <h3 class="limits-title">Limits</h3>
+            <div class="limits-inputs">
+              <label for="current-high-temp" class="high-temp-lbl"
+                >Up
+                <input
+                  id="current-high-temp"
+                  class="high-temp-limit"
+                  type="number"
+                  data-current-high
+                  autocomplete="off"
+                  min="0"
+              /></label>
+
+              <label for="current-low-temp" class="low-temp-lbl"
+                >Down<input
+                  id="current-low-temp"
+                  class="low-temp-limit"
+                  type="number"
+                  data-current-low
+                  autocomplete="off"
+                  min="0"
+              /></label>
+
+              <label for="current-time" class="time-lbl"
+                >Time<input
+                  id="current-time"
+                  class="time-limit"
+                  type="number"
+                  data-current-time
+                  autocomplete="off"
+                  min="0"
+              /></label>
+            </div>
+            <div class="settings-btn-container">
+              <button type="submit" class="apply-btn" data-apply-btn disabled>
+                Apply
+              </button>
+              <!-- <button type="button" class="reset-btn" data-reset-btn>
+                Reset
+              </button> -->
+              <button
+                type="button"
+                class="close-btn"
+                formmethod="dialog"
+                data-close-btn="true"
+              >
+                Close
+              </button>
+            </div>
+          </form>
+        </div>
+      </dialog>
+      <audio data-alarm-sound>
+    <source src="/src/sound/alarm.wav"  type="audio/mpeg" loop preload>
+</audio>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

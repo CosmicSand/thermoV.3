@@ -1,0 +1,175 @@
+/* ==== Alarm - Overheated ==== */
+
+.sensor.over-heated-alarm {
+  background-image: radial-gradient(
+    transparent 0% 50%,
+    var(--alarm-color) 70% 100%
+  );
+}
+.boiler.over-heated-alarm {
+  background-image: radial-gradient(
+    transparent 0% 50%,
+    var(--alarm-color) 70% 100%
+  );
+}
+
+.over-heated-alarm[data-blink="true"] {
+  box-shadow: none;
+  animation: alarm 1s ease-in 0.1s infinite normal forwards;
+}
+@keyframes alarm {
+  0% {
+  }
+
+  40% {
+    box-shadow: 0 0 5em 3em var(--alarm-color),
+      inset 0 -0.2em 1em 1em var(--alarm-color);
+  }
+  100% {
+  }
+}
+
+.sensor.freezing-cold-alarm {
+  background-image: radial-gradient(
+    transparent 0% 50%,
+    var(--alarm-freezing-color) 70% 100%
+  );
+}
+.boiler.freezing-cold-alarm {
+  background-image: radial-gradient(
+    transparent 0% 50%,
+    var(--alarm-freezing-color) 70% 100%
+  );
+}
+
+.freezing-cold-alarm[data-blink="true"] {
+  animation: alarm-freezing-cold 1s ease-in 0.1s infinite normal forwards;
+}
+
+@keyframes alarm-freezing-cold {
+  0% {
+  }
+
+  40% {
+    box-shadow: 0 0 5em 3em var(--alarm-freezing-color),
+      inset 0 -0.2em 1em 1em var(--alarm-freezing-color);
+  }
+  100% {
+  }
+}
+
+.boiler.over-heated-alarm {
+  border-left: 0.15rem solid var(--alarm-color);
+}
+
+/* ==== Alarm - Low battery ==== */
+.battery.empty {
+  border-color: var(--alarm-color);
+  box-shadow: 0 0 0.75em 0.375em var(--alarm-color),
+    inset 0 -0.05em 0.5em 0.05em var(--alarm-color);
+  /* background-color: var(--alarm-color); */
+
+  /* animation: alarm-time 1s ease-in 0.1s infinite normal forwards; */
+}
+
+/* ==== Time (tau) alarm button ==== */
+
+.tau {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  width: 1.7em;
+  height: 1.7em;
+  top: -17%;
+  left: -17%;
+  color: var(--border-color);
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow: 0 0 0.25em 0.125em var(--alarm-color),
+    inset 0 0 0.5em 0.1em var(--alarm-color);
+  animation: alarm-time 1s ease-in 0.1s infinite normal forwards;
+  z-index: 2;
+}
+@keyframes alarm-time {
+  0% {
+  }
+
+  40% {
+    box-shadow: 0 0 0.75em 0.375em var(--alarm-color),
+      inset 0 -0.05em 0.5em 0.05em var(--alarm-color);
+  }
+  100% {
+  }
+}
+
+.sensor-time-alarm.sensor,
+.sensor-time-alarm.boiler {
+  background-image: radial-gradient(
+    transparent 0% 50%,
+    hsla(0, 0%, 100%, 0.346) 70% 100%
+  );
+  box-shadow: none;
+  animation: none;
+  /* filter: grayscale(0.8); */
+}
+.sensor-time-alarm.boiler::before,
+.sensor-time-alarm.boiler::after {
+  filter: grayscale(0.8);
+}
+
+.sensor-time-alarm.gateway-element {
+  border-color: rgb(248, 240, 227);
+}
+
+.sensor-time-alarm.gateway-element > p {
+  color: hsla(47, 89%, 78%, 0.566);
+  border-color: hsla(47, 89%, 78%, 0.566);
+  box-shadow: none;
+  animation: none;
+  filter: grayscale(0.8);
+}
+
+.sensor-time-alarm.sensor .battery,
+.sensor-time-alarm.boiler .battery,
+.sensor-time-alarm.gateway-element .battery {
+  box-shadow: none;
+  border-color: rgb(0, 0, 0);
+  filter: grayscale(0.8);
+}
+.sensor-time-alarm.sensor .signal {
+  box-shadow: none;
+  border-color: rgb(0, 0, 0);
+  filter: grayscale(0.8);
+}
+.sensor-time-alarm.sensor > p {
+  color: hsla(47, 89%, 78%, 0.566);
+  filter: grayscale(0.8);
+}
+.tau.hidden {
+  display: none;
+}
+
+.sensor.damaged {
+  box-shadow: none;
+}
+
+.sensor.damaged > p:first-child {
+  color: hsla(0, 0%, 100%, 0.346);
+}
+
+/* ==== Media ==== */
+
+@media screen and (min-width: 768px) {
+  .tau {
+    font-size: 1.8rem;
+    width: 1.7em;
+    height: 1.7em;
+  }
+}

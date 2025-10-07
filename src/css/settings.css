@@ -1,0 +1,194 @@
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  margin-top: 0.5em;
+  font-size: 1.125rem;
+
+  /* gap: 1em; */
+}
+.settings-btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.limits-title {
+  margin-top: 1em;
+  margin-bottom: 0.2em;
+}
+.limits-inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 0.5em;
+  width: 100%;
+}
+
+.sensorsname {
+  height: 1.8em;
+  width: 14em;
+  font-size: 1em;
+  background-color: hsl(0, 0%, 0%);
+  color: var(--border-color);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5em;
+  margin-bottom: 0.1em;
+  margin-top: 0.2em;
+  padding-left: 0.5em;
+  padding-right: 0.3em;
+  transition: border 0.3s ease-in-out;
+}
+
+.high-temp-limit,
+.low-temp-limit,
+.time-limit {
+  display: block;
+  height: 1.5em;
+  width: 3.5em;
+  font-size: 1em;
+  background-color: hsl(0, 0%, 0%);
+  color: var(--border-color);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5em;
+  margin-bottom: 0.1em;
+  margin-top: 0.1em;
+  padding-left: 0.5em;
+  transition: border 0.3s ease-in-out;
+}
+.sensorsname:hover,
+.sensorsname:focus {
+  border: 1px solid var(--border-color-hov);
+  box-shadow: 0 0 0.3em 0.1em var(--border-color-hov),
+    inset 0 0 0.3em 0.1em var(--border-color-hov);
+}
+
+.high-temp-limit:hover,
+.high-temp-limit:focus {
+  border: 1px solid var(--border-color-hov);
+  box-shadow: 0 0 1em 0.2em hsl(0, 97%, 42%),
+    inset 0 0 0.5em 0.1em hsl(0, 97%, 42%);
+}
+.low-temp-limit:hover,
+.low-temp-limit:focus {
+  border: 1px solid var(--border-color-hov);
+  box-shadow: 0 0 1em 0.2em hsl(186, 100%, 51%),
+    inset 0 0 0.5em 0.1em hsl(186, 100%, 51%);
+}
+.time-limit:hover,
+.time-limit:focus {
+  border: 1px solid var(--border-color-hov);
+  box-shadow: 0 0 1em 0.2em hsl(0, 97%, 42%),
+    inset 0 0 0.5em 0.1em hsl(0, 97%, 42%);
+  /* filter: sepia(1); */
+}
+.apply-btn,
+.reset-btn,
+.close-btn {
+  /* position: absolute; */
+  height: 2em;
+  width: 5em;
+  border: 1px solid var(--border-color);
+  border-radius: 1em;
+  background-color: hsl(0, 0%, 0%);
+  color: var(--border-color);
+  font-size: 1em;
+  font-weight: 600;
+  margin-top: 1em;
+  outline: none;
+  cursor: pointer;
+
+  transition: border 0.2s ease-in-out, color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+}
+
+/* .apply-btn {
+  top: 100%;
+  left: 15%;
+} */
+.apply-btn:hover,
+.apply-btn:focus {
+  border: 1px solid var(--border-color-hov);
+  color: var(--border-color-hov);
+  box-shadow: 0 0 1em 0.2em hsla(129, 93%, 41%, 0.808),
+    inset 0 0 0.5em 0.1em hsla(129, 93%, 41%, 0.71);
+}
+.reset-btn:hover,
+.apply-btn:focus {
+  border: 1px solid var(--border-color-hov);
+  color: var(--border-color-hov);
+  box-shadow: 0 0 1em 0.2em hsla(44, 54%, 93%, 0.808),
+    inset 0 0 0.5em 0.1em hsla(44, 54%, 93%, 0.71);
+}
+.close-btn:hover,
+.close-btn:focus {
+  border: 1px solid var(--border-color-hov);
+  color: var(--border-color-hov);
+  box-shadow: 0 0 1em 0.2em hsl(0, 97%, 42%),
+    inset 0 0 0.5em 0.1em hsl(0, 97%, 42%);
+}
+.apply-btn:disabled {
+  filter: grayscale(1);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.modal {
+  display: none;
+  width: 30em;
+  height: 25em;
+  /* font-size: 0.8em; */
+  transition: display opacity;
+  transition-duration: 0.7s;
+  transition-behavior: allow-discrete;
+  translate: 0 10vh;
+  opacity: 0;
+  background-image: radial-gradient(var(--body-bg-color) 0%, rgb(0, 0, 0) 100%);
+  color: var(--text-color);
+}
+.modal[open] {
+  display: block;
+  translate: 0 0;
+  opacity: 1;
+
+  @starting-style {
+    opacity: 0;
+    translate: 0 -10vh;
+  }
+}
+
+.modal::backdrop {
+  display: none;
+  transition: display opacity;
+  transition-duration: 0.7s;
+  transition-behavior: allow-discrete;
+  background-color: rgba(1, 5, 61, 0, 2);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+}
+
+.modal[open]::backdrop {
+  display: block;
+  opacity: 1;
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+
+.settings-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}

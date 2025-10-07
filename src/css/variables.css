@@ -1,0 +1,11 @@
+:root {
+  --body-bg-color: hsl(245, 98%, 16%);
+  --text-color: hsla(53, 100%, 50%, 0.767);
+  --logo-btn-bg-color: hsl(50, 100%, 50%);
+  --border-color: hsl(47, 89%, 78%);
+  --border-color-hov: hsl(44, 54%, 93%);
+  --alarm-color: hsl(0, 97%, 42%);
+  --alarm-freezing-color: hsl(200, 100%, 50%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

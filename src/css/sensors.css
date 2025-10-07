@@ -1,0 +1,331 @@
+/*  ===== Gateway ===== */
+
+.gateway {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  width: 100%;
+  padding: 0.5em;
+}
+
+.gateway-element {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  row-gap: 0.2rem;
+  padding: 0.2rem;
+  width: 8em;
+  height: 8em;
+  border-radius: 100%;
+  border: 1px solid var(--border-color);
+}
+
+.gateway-element > .tau {
+  background-color: transparent;
+  top: -25%;
+  left: -25%;
+  border-radius: 100%;
+}
+
+/* ==== Sensor ==== */
+
+.sensor {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  width: 5rem;
+  height: 5rem;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  /* filter: contrast(1.2); */
+  border-radius: 100%;
+  /* z-index: 2; */
+  background-image: radial-gradient(
+    transparent 0% 50%,
+    hsla(129, 93%, 41%, 0.71) 70% 100%
+  );
+  cursor: pointer;
+  /* Halo */
+
+  /* box-shadow: 0 0 2em 0.8em hsla(129, 93%, 41%, 0.71),
+    0 0 0.2em 0.1em hsla(129, 70%, 91%, 0.71); */
+
+  /* box-shadow: 0 0 0.4em 0.8em hsl(129, 97%, 41%),
+    inset 0 -0.2em 0.5em 0.5em hsl(129, 93%, 41%); */
+  box-shadow: 0.1em 0.1em 1em 0.05em hsl(0, 0%, 100%);
+  transition: transform 0.3s ease-in-out, outline 0.3s ease-in-out;
+}
+
+.sensor:hover {
+  outline: 1px solid hsl(0, 0%, 100%);
+}
+
+.parameter {
+  font-size: 2rem;
+  /* line-height: 1.5; */
+  font-weight: 600;
+  color: hsl(64, 77%, 76%);
+  cursor: pointer;
+}
+
+.sensor-name {
+  max-width: 75%;
+  font-size: 0.7em;
+  line-height: 1.15;
+  padding-top: 0.2em;
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.2em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border-radius: 1em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  /* border: 1px solid hsl(0, 0%, 100%); */
+  color: var(--border-color);
+  background-color: hsla(0, 0%, 0%, 0.835);
+  white-space: nowrap;
+  /* cursor: pointer; */
+}
+
+/* ==== Battery ==== */
+
+.battery {
+  display: flex;
+  position: absolute;
+  top: 92%;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 0.1em;
+  padding: 0.1em;
+  width: fit-content;
+  background-color: hsl(0, 0%, 0%);
+  border: 0.2em solid hsl(0, 0%, 0%);
+  border-radius: 0.2em;
+}
+
+.low-level {
+  width: 0.25rem;
+  height: 0.5rem;
+  background-color: var(--alarm-color);
+}
+.medium-level {
+  width: 0.25em;
+  height: 0.5em;
+  background-color: hsl(57, 97%, 50%);
+}
+.full-level {
+  width: 0.25em;
+  height: 0.5em;
+  background-color: hsl(134, 97%, 50%);
+}
+.is-full {
+  background-color: hsl(134, 97%, 50%);
+}
+.battery:hover::before {
+  content: attr(data-battery) "%";
+  position: absolute;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: -0.5%;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.2em;
+  padding: 0.1em 0.2em;
+  color: var(--border-color);
+  background-color: hsl(0, 0%, 0%);
+}
+.drained {
+  background-color: transparent;
+  border: 0.05em solid hsla(0, 0%, 100%, 0.596);
+}
+
+/* GSM signal */
+
+.signal {
+  display: flex;
+  position: absolute;
+  top: 72%;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 0.25em;
+  padding: 0.1em;
+  width: fit-content;
+  height: 1.25rem;
+  background-color: transparent;
+  z-index: 1;
+}
+
+.signal-dot {
+  width: 0.375em;
+  height: 0.375em;
+  border-radius: 50%;
+  background-color: hsl(134, 97%, 50%);
+}
+
+.signal:hover::before {
+  content: attr(data-signal-level) "%";
+  position: absolute;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 110%;
+  border-radius: 0.2em;
+  padding: 0.1em 0.2em;
+  color: var(--border-color);
+  filter: none;
+  background-color: hsl(0, 0%, 0%);
+}
+
+.poor-signal > .signal-dot {
+  background-color: var(--alarm-color);
+}
+.poor-signal > .signal-dot:nth-child(2n + 1) {
+  display: none;
+}
+.no-signal > .signal-dot:nth-child(2n + 1) {
+  display: none;
+}
+.no-signal > .signal-dot {
+  background-color: transparent;
+}
+.no-signal > .signal-dot::before {
+  content: "No signal";
+  position: absolute;
+  width: 5em;
+  font-size: 0.75rem;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+.signal.no-signal:hover::before {
+  content: "";
+}
+
+.average-signal > .signal-dot {
+  background-color: hsl(57, 97%, 50%);
+}
+.average-signal > .signal-dot:first-child {
+  display: none;
+}
+
+/* Boiler */
+
+.boiler {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  padding: 0.5rem;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  border-left: 0.15rem solid hsla(186, 100%, 51%, 0.792);
+  border-right: 0.15rem solid hsla(0, 97%, 42%, 0.745);
+  background-image: radial-gradient(
+    transparent 0% 50%,
+    hsla(129, 93%, 41%, 0.71) 70% 100%
+  );
+  cursor: pointer;
+}
+
+.boiler .parameter:hover {
+  filter: opacity(0);
+}
+
+.boiler > .temperature-wrapper:hover::before {
+  content: attr(data-before);
+  position: absolute;
+  font-size: 3rem;
+  font-weight: 600;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  top: 40.5%;
+  transform: translate(-50%, -50%);
+  border-radius: 0.2em;
+  padding: 0.1em 0.2em;
+  color: var(--border-color);
+  filter: none;
+  background-color: transparent;
+}
+
+[data-active="true"] {
+  box-shadow: 0.1em 0.1em 1.5em 0.1em hsl(0, 0%, 100%);
+  /* background-image: radial-gradient(
+    transparent 0% 50%,
+    hsla(129, 93%, 41%, 0.71) 70% 100%
+  );
+  box-shadow: 0 0 2em 0.8em hsla(0, 0%, 99%, 0.71),
+    0 0 0.2em 0.1em hsla(129, 70%, 91%, 0.71); */
+}
+
+/* ==== Time alarm button ==== */
+
+@media screen and (min-width: 768px) {
+  .for-boilers {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .padding {
+    padding-left: 4.6em;
+    padding-right: 4.6em;
+  }
+  .sensor {
+    width: 10em;
+    height: 10em;
+  }
+  .boiler {
+    width: 12em;
+    height: 12em;
+  }
+  .parameter {
+    font-size: 3em;
+  }
+  .sensor-name {
+    font-size: 1em;
+  }
+
+  .battery:hover::before {
+    font-size: 0.8rem;
+  }
+  .low-level {
+    width: 0.5em;
+    height: 1em;
+  }
+  .medium-level {
+    width: 0.5em;
+    height: 1em;
+  }
+  .full-level {
+    width: 0.5em;
+    height: 1em;
+  }
+}

@@ -1,0 +1,282 @@
+/* Information page */
+
+.greetings.hidden {
+  display: none;
+  opacity: 0;
+  width: 0;
+}
+.greetings {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1.5em;
+  color: var(--border-color);
+  opacity: 1;
+  min-height: 100vh;
+  transition: display opacity;
+  transition-duration: 1s;
+  transition-behavior: allow-discrete;
+  transform: 0 0;
+  padding-top: 1em;
+
+  @starting-style {
+    opacity: 0;
+    translate: 25vh 0;
+  }
+}
+.greetings.anime {
+  animation: disappear 1s forwards;
+}
+
+@keyframes appear {
+  0% {
+    translate: 10vh 0;
+    display: none;
+    opacity: 0;
+  }
+  100% {
+    translate: 0 0;
+    display: flex;
+    opacity: 1;
+  }
+}
+
+.example {
+  margin: 0 auto;
+}
+/* .greetings-info-container .example {
+  background-color: hsl(0, 0%, 0%);
+} */
+.example > .parameter::before {
+  content: "Temperature in celsius degrees";
+  position: absolute;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  top: 10%;
+  left: -85%;
+  width: 10em;
+  /* height: 100%; */
+  /* background-color: hsl(0, 0%, 0%); */
+}
+
+.example > .sensor-name::after {
+  content: "Name of the sensor";
+  position: absolute;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: right;
+  border-bottom: 1px solid var(--border-color);
+  top: 55%;
+  left: 80%;
+  width: 12.5em;
+}
+
+.example > .signal::after {
+  content: "GSM/WiFi signal in percentage";
+  position: absolute;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  top: -1.7em;
+  left: -14em;
+  width: 13.5em;
+}
+
+.example > .battery::after {
+  content: "Battery life in percentage";
+  position: absolute;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: right;
+  border-bottom: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+  top: 1.5em;
+  left: 1em;
+  width: 10.5em;
+}
+
+.greetings-text {
+  font-size: 1.125rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+.sensor-info {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.next-btn {
+  font-size: 1.5em;
+  font-weight: 200;
+
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-top: 3em;
+  margin-bottom: 1em;
+  border: 1px solid var(--logo-btn-bg-color);
+  border-radius: 1em;
+  background-color: hsla(0, 0%, 0%, 0.835);
+  color: var(--logo-btn-bg-color);
+  cursor: pointer;
+  transition: border-color 0.3s ease-in-out;
+}
+.next-btn[data-roll-button] {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.next-btn:hover,
+.next-btn:focus {
+  border-color: var(--border-color-hov);
+  color: var(--border-color-hov);
+  /* box-shadow: 0 0 0.2em 0.05em var(--logo-btn-bg-color); */
+}
+
+.greetings-first-part {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1.5em;
+  color: var(--border-color);
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.greetings-second-part {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1.5em;
+  color: var(--border-color);
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.greetings-examples-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  width: 100%;
+}
+
+.greetings-examples-list-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  width: 100%;
+  padding: 0.5em;
+  border-radius: 1em;
+}
+
+.over-heated-alarm-blink {
+  box-shadow: none;
+  animation: alarm 1s ease-in 0.1s infinite normal forwards;
+}
+@keyframes alarm {
+  0% {
+  }
+
+  40% {
+    box-shadow: 0 0 5em 3em var(--alarm-color),
+      inset 0 -0.2em 1em 1em var(--alarm-color);
+  }
+  100% {
+  }
+}
+
+.freezing-cold-alarm-blink {
+  animation: alarm-freezing-cold 1s ease-in 0.1s infinite normal forwards;
+}
+
+@keyframes alarm-freezing-cold {
+  0% {
+  }
+
+  40% {
+    box-shadow: 0 0 5em 3em var(--alarm-freezing-color),
+      inset 0 -0.2em 1em 1em var(--alarm-freezing-color);
+  }
+  100% {
+  }
+}
+.greetings-second-part.hidden,
+.greetings-first-part.hidden,
+.monitor.hidden {
+  display: none;
+  opacity: 0;
+}
+
+.greetings-second-part {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: display opacity;
+  transition-duration: 1s;
+  transition-behavior: allow-discrete;
+  transform: 0 0;
+
+  @starting-style {
+    opacity: 0;
+    translate: 25vh 0;
+  }
+}
+
+.greetings-first-part.anime {
+  animation: disappear 1s forwards;
+}
+
+.greetings-second-part.anime {
+  animation: disappear 1s forwards;
+}
+
+.monitor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1.5em;
+  color: var(--border-color);
+  opacity: 1;
+  width: 100%;
+  min-height: 100%;
+}
+
+.monitor.anime {
+  animation: appear 1s forwards;
+}
+
+@keyframes disappear-info {
+  0% {
+    opacity: 1;
+    translate: 0 0;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+    translate: -25vh 0;
+  }
+}
+
+@media screen and (min-width: 378px) {
+}
+@media screen and (min-width: 768px) {
+}

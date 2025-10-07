@@ -1,0 +1,11 @@
+body {
+  font-family: Montserrat, Arial, sans-serif;
+  background-image: radial-gradient(var(--body-bg-color) 0%, rgb(0, 0, 0) 100%);
+  background-repeat: no-repeat;
+  color: var(--text-color);
+  /* height: 100vh; */
+}
+
+.hidden {
+  display: none;
+}
